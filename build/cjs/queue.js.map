@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../esm/queue.js"],
+  "sourcesContent": ["export {};\n"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

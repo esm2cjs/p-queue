@@ -1,25 +1,29 @@
 {
-	"name": "p-queue",
+	"name": "@esm2cjs/p-queue",
 	"version": "7.3.0",
-	"description": "Promise queue with concurrency control",
+	"description": "Promise queue with concurrency control. This is a fork of sindresorhus/p-queue, but with CommonJS support.",
 	"license": "MIT",
-	"repository": "sindresorhus/p-queue",
-	"funding": "https://github.com/sponsors/sindresorhus",
-	"type": "module",
-	"exports": "./dist/index.js",
+	"repository": "esm2cjs/p-queue",
+	"funding": "https://github.com/sponsors/AlCalzone",
+	"exports": {
+		".": {
+			"import": "./build/esm/index.js",
+			"require": "./build/cjs/index.js"
+		},
+		"./package.json": "./package.json"
+	},
 	"engines": {
 		"node": ">=12"
 	},
 	"scripts": {
-		"build": "del dist && tsc",
-		"test": "xo && npm run build && nyc ava",
-		"bench": "node --loader=ts-node/esm bench.ts",
-		"prepare": "npm run build"
+		"build": "del build/ && tsc",
+		"test": "xo && nyc ava",
+		"bench": "node --loader=ts-node/esm bench.ts"
 	},
 	"files": [
-		"dist"
+		"build/"
 	],
-	"types": "dist/index.d.ts",
+	"types": "build/esm/index.d.ts",
 	"keywords": [
 		"promise",
 		"queue",
@@ -43,8 +47,8 @@
 		"bluebird"
 	],
 	"dependencies": {
-		"eventemitter3": "^4.0.7",
-		"p-timeout": "^5.0.2"
+		"@esm2cjs/p-timeout": "^5.0.2",
+		"eventemitter3": "^4.0.7"
 	},
 	"devDependencies": {
 		"@sindresorhus/tsconfig": "^2.0.0",
@@ -80,11 +84,39 @@
 			"@typescript-eslint/member-ordering": "off",
 			"@typescript-eslint/no-floating-promises": "off",
 			"@typescript-eslint/no-invalid-void-type": "off"
-		}
+		},
+		"ignores": [
+			"build",
+			"test",
+			"**/*.test-d.ts",
+			"**/*.d.ts"
+		]
 	},
 	"nyc": {
 		"extension": [
 			".ts"
 		]
+	},
+	"author": {
+		"name": "Dominic Griesel",
+		"email": "d.griesel@gmx.net"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"main": "build/cjs/index.js",
+	"module": "build/esm/index.js",
+	"typesVersions": {
+		"*": {
+			"build/esm/index.d.ts": [
+				"build/esm/index.d.ts"
+			],
+			"build/cjs/index.d.ts": [
+				"build/esm/index.d.ts"
+			],
+			"*": [
+				"build/esm/*"
+			]
+		}
 	}
 }

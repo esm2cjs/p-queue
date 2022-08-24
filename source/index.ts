@@ -1,5 +1,5 @@
 import EventEmitter from 'eventemitter3';
-import pTimeout, {TimeoutError} from 'p-timeout';
+import pTimeout, {TimeoutError} from '@esm2cjs/p-timeout';
 import {Queue, RunFunction} from './queue.js';
 import PriorityQueue from './priority-queue.js';
 import {QueueAddOptions, Options, TaskOptions} from './options.js';

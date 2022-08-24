@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../esm/options.js"],
+  "sourcesContent": ["export {};\n"],
+  "mappings": ";;;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

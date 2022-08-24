@@ -6,7 +6,7 @@ import inRange from 'in-range';
 import timeSpan from 'time-span';
 import randomInt from 'random-int';
 import pDefer from 'p-defer';
-import PQueue, {AbortError} from '../source/index.js';
+import PQueue, {AbortError} from '../build/esm/index.js';
 
 const fixture = Symbol('fixture');
 
